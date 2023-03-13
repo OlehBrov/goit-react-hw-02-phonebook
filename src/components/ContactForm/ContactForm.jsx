@@ -8,7 +8,6 @@ export class ContactForm extends Component {
   };
 
   handleSubmit = (values, {resetForm}) => {
-      console.log('ContactForm values', resetForm)
       this.props.addContact(this.state);
      this.setState({ name: '', number: '' });
   };

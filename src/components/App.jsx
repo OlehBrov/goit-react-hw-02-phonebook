@@ -1,8 +1,8 @@
-import { Children, Component } from 'react';
+import { Component } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { nanoid } from 'nanoid';
-import { ContactItem } from './ContactItem/ContactItem';
+import { Filter } from './Filter/Filter';
 
 export class App extends Component {
   state = {
@@ -34,6 +34,17 @@ export class App extends Component {
     } else console.log('Already exists');
   };
 
+  filterContacts = filter => {
+    console.log('filterContacts', filter);
+    this.setState(
+      {
+        ...this.state,
+        filter: filter,
+      },
+      console.log('filterContacts STATE', this.state)
+    );
+  };
+
   render() {
     return (
       <div>
@@ -41,17 +52,21 @@ export class App extends Component {
         <ContactForm addContact={this.addContact} />
 
         <h2>Contacts</h2>
-        {/* <Filter /> */}
-        <ContactList contactList={this.state}>
-          {this.state.contacts.map(contact => (
-            <ContactItem
-              key={contact.id}
-              name={contact.name}
-              number={contact.number}
-            ></ContactItem>
-          ))}
-        </ContactList>
+        <Filter filterContacts={this.filterContacts} />
+        <ContactList contactList={this.state}></ContactList>
       </div>
     );
   }
 }
+
+// handleChange(event) {
+//   console.log("Value from event:", event.target.value);
+
+//   this.setState({
+//     text: event.target.value
+//   }, () => {
+//     console.log("New state in ASYNC callback:", this.state.text);
+//   });
+
+//   console.log("New state DIRECTLY after setState:", this.state.text);
+// }
