@@ -7,12 +7,10 @@ export class ContactList extends Component {
   };
 
   makeList = state => {
-    console.log('makeList', this.props.contactList.filter);
     let contactlist = state.contacts;
-    console.log(' let contactlist', contactlist);
+    console.log('in list contactlist', contactlist);
     let searchQuery = this.props.contactList.filter.toString();
     if (this.props.contactList.filter === '') {
-      console.log('state in IF', state.contacts);
       return contactlist;
     } else {
       return (contactlist = state.contacts.filter(person => {
@@ -20,17 +18,29 @@ export class ContactList extends Component {
       }));
     }
   };
+//   onDeleteContact = id => {
+//     console.log('EVENT', id);
+//     console.log('state in delet func', this.state);
+//     this.setState(prevState => {
+//       return prevState.contacts.filter(el => el.id !== id);
+//     }, console.log('after delete', this.state));
+//   };
   render() {
     return (
-      <ul>
-        {this.makeList(this.state).map(contact => (
-          <ContactItem
-            key={contact.id}
-            name={contact.name}
-            number={contact.number}
-          ></ContactItem>
-        ))}
-      </ul>
+      console.log('contactlist in return', this.makeList(this.state)),
+      (
+        <ul>
+          {this.makeList(this.state).map(contact => (
+            <ContactItem
+              key={contact.id}
+              name={contact.name}
+              number={contact.number}
+            //   onDeleteContact={this.props}
+              id={contact.id}
+              >{ this.props}</ContactItem>
+          ))}
+        </ul>
+      )
     );
   }
 }
