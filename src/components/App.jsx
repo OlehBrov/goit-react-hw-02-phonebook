@@ -16,19 +16,13 @@ export class App extends Component {
   };
 
   checkEqualContact = contact => {
-    console.log('cont name', this.state.contacts);
-    if (
-      this.state.contacts.filter(
-        el => el.name.toLowerCase() !== contact.name.toLowerCase()
-      )
-    ) {
-      return true;
-    }
-    return false;
+    return this.state.contacts.some(
+      el => el.name.toLowerCase() === contact.name.toLowerCase()
+    );
   };
 
   addContact = contact => {
-    if (this.checkEqualContact(contact)) {
+    if (!this.checkEqualContact(contact)) {
       contact = {
         id: nanoid(),
         ...contact,
