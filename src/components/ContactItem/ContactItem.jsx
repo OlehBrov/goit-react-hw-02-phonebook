@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const ContactItem = (props) => {
   return (
-    console.log('in list props', props),
     (
       <ListItem key={props.id}>
         Name: {props.name} Phone: {props.number}

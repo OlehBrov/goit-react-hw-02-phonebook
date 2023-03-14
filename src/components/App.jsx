@@ -33,25 +33,22 @@ export class App extends Component {
       this.setState(prevState => {
         return prevState.contacts.splice(0, 0, contact);
       });
-    } else console.log('Already exists');
+    } else alert('Such contact already exists');
   };
 
   filterContacts = filter => {
-    console.log('filterContacts before', this.state);
     this.setState(
       {
         ...this.state,
         filter: filter,
       },
-      console.log('filterContacts STATE', this.state)
     );
   };
   onDeleteContact = id => {
    return this.setState((state) => {
-     console.log('{contacts}', state)
      return {contacts: state.contacts.filter(el => el.id !== id)};
    
-    }, console.log('after delete', this.state));
+    });
   };
   render() {
     return (

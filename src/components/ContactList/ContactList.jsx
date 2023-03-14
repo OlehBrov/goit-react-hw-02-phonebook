@@ -8,9 +8,7 @@ export class ContactList extends Component {
   };
 
   makeList = state => {
-    // let contactlist = this.props.contactList.contacts;
-    console.log('in list props contactlist', this.props.contactList.contacts);
-    console.log('in list contactlist state', this.state);
+
     let searchQuery = this.props.contactList.filter.toString().toLowerCase();
     if (this.props.contactList.filter === '') {
       return this.props.contactList.contacts;
@@ -23,7 +21,7 @@ export class ContactList extends Component {
 ;
   render() {
     return (
-      console.log('contactlist in return', this.makeList(this.state)),
+      
       (
         <List>
           {this.makeList(this.state).map(contact => (
