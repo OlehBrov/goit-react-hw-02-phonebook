@@ -7,24 +7,19 @@ export class ContactList extends Component {
   };
 
   makeList = state => {
-    let contactlist = state.contacts;
-    console.log('in list contactlist', contactlist);
-    let searchQuery = this.props.contactList.filter.toString();
+    // let contactlist = this.props.contactList.contacts;
+    console.log('in list props contactlist', this.props.contactList.contacts);
+    console.log('in list contactlist state', this.state);
+    let searchQuery = this.props.contactList.filter.toString().toLowerCase();
     if (this.props.contactList.filter === '') {
-      return contactlist;
+      return this.props.contactList.contacts;
     } else {
-      return (contactlist = state.contacts.filter(person => {
-        return person.name.includes(searchQuery);
+      return (this.props.contactList.contacts.filter(person => {
+        return person.name.toLowerCase().includes(searchQuery);
       }));
     }
   };
-//   onDeleteContact = id => {
-//     console.log('EVENT', id);
-//     console.log('state in delet func', this.state);
-//     this.setState(prevState => {
-//       return prevState.contacts.filter(el => el.id !== id);
-//     }, console.log('after delete', this.state));
-//   };
+;
   render() {
     return (
       console.log('contactlist in return', this.makeList(this.state)),
@@ -45,14 +40,3 @@ export class ContactList extends Component {
   }
 }
 
-// data
-//     .filter((item) => {return (
-//         item.country.toLowerCase().includes(search_term) ||
-//         item.name.toLowerCase().includes(search_term)
-//       );
-//     })
-//     .forEach((e) => {
-//       const li = document.createElement("li");
-//       li.innerHTML = `<i>Name:</i> ${e.name}  || <i>Country:</i> ${e.country}`;
-//       results.appendChild(li);
-//     });
