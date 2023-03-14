@@ -1,5 +1,6 @@
 import { ContactItem } from 'components/ContactItem/ContactItem';
 import { Component } from 'react';
+import styled from 'styled-components';
 export class ContactList extends Component {
   state = {
     contacts: this.props.contactList.contacts,
@@ -24,7 +25,7 @@ export class ContactList extends Component {
     return (
       console.log('contactlist in return', this.makeList(this.state)),
       (
-        <ul>
+        <List>
           {this.makeList(this.state).map(contact => (
             <ContactItem
               key={contact.id}
@@ -34,9 +35,16 @@ export class ContactList extends Component {
               id={contact.id}
               >{ this.props}</ContactItem>
           ))}
-        </ul>
+        </List>
       )
     );
   }
 }
 
+const List = styled.ul`
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 20px;
+`

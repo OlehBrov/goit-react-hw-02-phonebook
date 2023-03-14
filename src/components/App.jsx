@@ -3,6 +3,8 @@ import { ContactForm } from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
 import { nanoid } from 'nanoid';
 import { Filter } from './Filter/Filter';
+import { PhonebookStyled } from './App.styled';
+import { FilterStyled } from './Filter/Filter.styled';
 
 export class App extends Component {
   state = {
@@ -53,7 +55,7 @@ export class App extends Component {
   };
   render() {
     return (
-      <div>
+      <PhonebookStyled>
         <h1>Phonebook</h1>
         <ContactForm addContact={this.addContact} />
 
@@ -63,19 +65,8 @@ export class App extends Component {
           contactList={this.state}
           onDeleteContact={this.onDeleteContact}
         ></ContactList>
-      </div>
+      </PhonebookStyled>
     );
   }
 }
 
-// handleChange(event) {
-//   console.log("Value from event:", event.target.value);
-
-//   this.setState({
-//     text: event.target.value
-//   }, () => {
-//     console.log("New state in ASYNC callback:", this.state.text);
-//   });
-
-//   console.log("New state DIRECTLY after setState:", this.state.text);
-// }

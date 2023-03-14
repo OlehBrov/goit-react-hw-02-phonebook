@@ -1,13 +1,27 @@
+import styled from "styled-components";
+
 export const ContactItem = (props) => {
   return (
     console.log('in list props', props),
     (
-      <li key={props.id}>
+      <ListItem key={props.id}>
         Name: {props.name} Phone: {props.number}
-        <button type="button" onClick={() => props.children.onDeleteContact(props.id)}>
+        <DeleteButton type="button" onClick={() => props.children.onDeleteContact(props.id)}>
           Delete
-        </button>
-      </li>
+        </DeleteButton>
+      </ListItem>
     )
   );
 };
+
+const DeleteButton = styled.button`
+display: block;
+  margin-right: 0;
+  margin-left: auto;
+  font-size: 20px;
+
+`
+const ListItem = styled.li`
+  display: flex;
+  align-items: center;
+`

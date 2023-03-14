@@ -1,5 +1,7 @@
 import { Form, Formik, Field } from 'formik';
 import { Component } from 'react';
+import styled from 'styled-components';
+import { FilterStyled } from './Filter.styled';
 
 export class Filter extends Component {
   state = {
@@ -16,17 +18,24 @@ export class Filter extends Component {
   render() {
     return (
       <Formik initialValues={{ filter: '' }}>
-        <Form>
+        <FilterStyled>
           <label htmlFor="searchfilter"></label>
-          <Field
+          <Input
             id="searchfilter"
             filter="filter"
             placeholder="Search contact"
             value={this.state.filter}
             onChange={this.handleChange}
           />
-        </Form>
+        </FilterStyled>
       </Formik>
     );
   }
 }
+
+export const Input = styled(Field)`
+  font-size: 25px;
+  display: block;
+  width: 100%;
+margin-bottom: 15px;
+`
