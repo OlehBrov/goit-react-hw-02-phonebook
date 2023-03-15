@@ -1,4 +1,4 @@
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup'
 import { Component } from 'react';
 import { Input } from 'components/Filter/Filter';
@@ -72,6 +72,6 @@ const AddButton = styled.button`
   cursor: pointer;
 `
 
-const FormError = styled(ErrorMessage)`
-  display: block;
-`
+//const FormError = styled(ErrorMessage)`
+//  display: block;
+//`
