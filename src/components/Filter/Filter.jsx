@@ -1,4 +1,4 @@
-import { Form, Formik, Field } from 'formik';
+import { Formik, Field } from 'formik';
 import { Component } from 'react';
 import styled from 'styled-components';
 import { FilterStyled } from './Filter.styled';
