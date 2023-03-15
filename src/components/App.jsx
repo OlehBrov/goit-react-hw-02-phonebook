@@ -4,7 +4,7 @@ import { ContactList } from './ContactList/ContactList';
 import { nanoid } from 'nanoid';
 import { Filter } from './Filter/Filter';
 import { PhonebookStyled } from './App.styled';
-import { FilterStyled } from './Filter/Filter.styled';
+//import { FilterStyled } from './Filter/Filter.styled';
 
 export class App extends Component {
   state = {
